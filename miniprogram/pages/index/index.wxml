@@ -1,14 +1,36 @@
 <!--index.wxml-->
 <view class="container">
 
-  <button bindtap="scanCodeEvent">扫描箱码</button>
+  <button class="wxui-btn scan-box-code" type="primary" bindtap="scanCodeEvent">扫描箱码</button>
 
-  <view wx:key="title"  wx:for="{{boxCodeInfo}}" wx:for-item="boxCodeInfo">
-    <view>箱码：{{boxCodeInfo.boxCode}}   管数：{{boxCodeInfo.testTubeNum}}</view>
-  </view>
+  <scroll-view scroll-y="true" style="height: 400px;margin-top: 10%;">
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">序号</view>
+        <view class="th">箱码</view>
+        <view class="th ">管数</view>
+        <view class="th ">板数</view>
+      </view>
+      <view wx:for="{{boxCodeInfo}}" wx:for-item="boxCodeInfo" wx:key="key">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+          <view class="td">{{index+1}}</view>
+          <view class="td">{{boxCodeInfo.boxCode}}</view>
+          <view class="td">{{boxCodeInfo.testTubeNum}}</view>
+          <view class="td">{{boxCodeInfo.testTubeNum}}</view>
+        </view>
+        <view class="tr" wx:else>
+          <view class="td">{{index+1}}</view>
+          <view class="td">{{boxCodeInfo.boxCode}}</view>
+          <view class="td">{{boxCodeInfo.testTubeNum}}</view>
+          <view class="td">{{boxCodeInfo.testTubeNum}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  
   
 
-  <view class="power" wx:key="title" wx:for="{{powerList}}" wx:for-item="power">
+  <!-- <view class="power" wx:key="title" wx:for="{{powerList}}" wx:for-item="power">
     <view class="power_info" data-index="{{index}}" bindtap="onClickPowerInfo">
       <view class="power_info_text">
         <view class="power_info_text_title">{{power.title}}</view>
@@ -26,7 +48,7 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 
   <view class="environment" bindtap="onChangeShowEnvChoose">当前环境 {{ selectedEnv.alias }}</view>
 

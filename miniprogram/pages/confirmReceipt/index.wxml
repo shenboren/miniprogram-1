@@ -1,0 +1,23 @@
+<!--pages/confirmReceipt/index.wxml-->
+<view class="page-body">
+    <view class="weui-cells__title box-code">箱码:{{boxCodeNum}}</view>
+    <form bindsubmit="confirmReceiptFrom">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" auto-focus placeholder="请输入管数" type="number" name="testTubeNum"/>
+        </view>
+      </view>
+
+      <button class="weui-btn confirm-button" type="primary" form-type="submit">确认接收</button>
+      <navigator class="weui-btn cancel-button" style="margin-top: 20%;" open-type="redirect"
+        url="../../pages/index/index">取消</navigator>
+    </form>
+</view>
+
+
+<view class="notice">
+  <view class="weui-cells__title">温馨提示</view>
+  <view>-------------------------------------</view>
+  <view>如果显示扫描箱码与实际不符</view>
+  <view>请重新扫描</view>
+</view>

@@ -104,33 +104,17 @@ Page({
    });
   },
 
-  createBoxCodeInfo(boxCode){
-    wx.showLoading({
-      title: '上传中',
-    });
-    wx.cloud.callFunction({
-      name: 'quickstartFunctions',
-      config: {
-        env: this.data.envId
-      },
-      data: {
-        type: 'createBoxCodeInfo',
-      },
-    }).then((resp) => {
-      console.log(resp);
-      wx.hideLoading();
-   }).catch((e) => {
-      console.log('Create Error');
-      wx.hideLoading();
-   });
-  },
+  
 
   scanCodeEvent(){
     wx.scanCode({
       onlyFromCamera: false,
       scanType: ['barCode'],
       success: (result) => {
-        this.createBoxCodeInfo(result.result);
+        // this.createBoxCodeInfo(result.result);
+        wx.redirectTo({
+          url: '/pages/confirmReceipt/index?boxCodeNum='+result.result,
+        })
       },
       fail: (res) => {
         console.log('scan fail')

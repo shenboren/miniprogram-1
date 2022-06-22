@@ -1,0 +1,33 @@
+/* pages/confirmReceipt/index.wxss */
+.page-body {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.weui-cells__title {
+  font-size: large;
+  color: black;
+}
+
+.weui-cells_after-title {
+  margin-top: 5%;
+}
+
+.confirm-button {
+  margin-top: 10%;
+}
+
+.cancel-button {
+  color:white;
+  background-color:grey;
+}
+
+.notice {
+  font-size: large;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.box-code {
+  margin-bottom: 7%;
+}
